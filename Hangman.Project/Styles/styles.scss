@@ -1,0 +1,211 @@
+$white: #fff;
+$red: red;
+$forest-green: #4f7942;
+$salmon-pink: #fe5152;
+$primary-font: "Poppins", sans-serif;
+$primary-bg-color: #8c52ff;
+$white-bg: #ffffff;
+$light-purple-bg: #bc9ff7;
+
+@mixin flex-container($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin box-shadow(
+  $h-offset: 1px,
+  $v-offset: 1px,
+  $blur: 2px,
+  $color: rgba(0, 0, 0, 0.25)
+) {
+  box-shadow: $h-offset $v-offset $blur $color;
+}
+
+@keyframes rotateColorChange {
+  0%,
+  100% {
+    transform: rotateY(0deg);
+    color: white;
+  }
+  50% {
+    transform: rotateY(360deg);
+    color: purple;
+  }
+}
+@keyframes colorChange {
+  0%,
+  100% {
+    background-color: white;
+    color: black;
+  }
+  50% {
+    background-color: red;
+    color: white;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $primary-font\;;
+}
+body {
+  background-color: $primary-bg-color;
+}
+h1 {
+  text-align: center;
+  color: $white;
+  margin-top: 40px;
+  perspective: 500px;
+  animation: rotateColorChange 8s 1 forwards;
+}
+h2 {
+  text-align: center;
+}
+.container {
+  @include flex-container(column); // Changed to flex column layout
+  font-size: 16px;
+  background-color: $white-bg;
+  width: 90vw;
+  max-width: 45em;
+  padding: 3em;
+  border-radius: 0.6em;
+  @include box-shadow(0, 1.2em, 2.4em, rgba(111, 85, 0, 0.25));
+  margin: 180px auto;
+}
+.letter-container {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+}
+#lives {
+  margin: 0px auto 10px;
+  display: flex;
+  justify-content: center;
+}
+#generated-word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#letter-container {
+  button {
+    height: 2.4em;
+    width: 2.4em;
+    border-radius: 0.3em;
+    background-color: $white-bg;
+    cursor: pointer;
+    &:hover {
+      background-color: $light-purple-bg;
+      color: $white;
+    }
+  }
+}
+.new-game-popup {
+  background-color: $white-bg;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0.6em;
+}
+#user-input {
+  display: flex;
+  justify-content: center;
+  font-size: 1.8em;
+  margin: 0.6em 0 1.2em 0;
+}
+canvas {
+  display: block;
+  margin: auto;
+  border: 10px solid #8c52ff;
+  border-radius: 10px;
+}
+.hide {
+  display: none;
+}
+#result-text {
+  h2 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+  p {
+    font-size: 1.25em;
+    margin: 1em 0 2em 0;
+  }
+  span {
+    font-weight: 600;
+  }
+}
+.hint-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 1px solid #000;
+  padding: 10px;
+  z-index: 1000;
+  width: 350px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  margin: auto auto;
+  font-size: 1.5rem;
+  .close {
+    float: right;
+    cursor: pointer;
+    color: $red;
+  }
+}
+#hintButton {
+  animation: colorChange 3s infinite;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 30px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 15px;
+}
+#new-game-button {
+  font-size: 1.25em;
+  padding: 0.5em 1em;
+  background-color: $primary-bg-color;
+  border: 3px solid #000000;
+  color: $white;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+.win-msg {
+  color: $forest-green;
+}
+.lose-msg {
+  color: $salmon-pink;
+}
+@media screen and (max-width: 458px) {
+  #letter-container {
+    button {
+      margin: 10px;
+    }
+  }
+  #canvas {
+    width: 100%;
+  }
+  .container {
+    margin: 20px auto;
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangman</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./Styles/styles.css" />
+  <script type="module" src="./JS/index.js" ></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap">
+<script type="module" src="JS/HintManager.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <h1 id="title">HANGMAN GAME</h1>
+  </header>
+  <main class="container">
+    <section id="lives">
+      <h2 class="visually-hidden">Lives</h2>
+    </section>
+    <section id="generated-word">
+      <h2 class="visually-hidden">Generated Word</h2>
+    </section>
+    <section id="user-input">
+      <h2 class="visually-hidden">User Input</h2>
+    </section>
+    <canvas id="canvas"></canvas>
+    <section id="letter-container" class="letter-container">
+      <h2 class="visually-hidden">Letter Container</h2>
+    </section>
+    <section id="new-game-container" class="new-game-popup hide">
+      <h2 class="visually-hidden">New Game</h2>
+      <section id="result-text">
+        <h2 class="visually-hidden">Game Result</h2>
+      </section>
+            <button id="new-game-button">New Game</button>
+    </section>
+    <section>
+      <h2 class="visually-hidden">Hint</h2>
+      <button id="hintButton">Need a hint?</button>
+      <div id="hintPopup" class="hint-popup">
+        <span class="close">&times;</span>
+        <p>You can see the random part of this word...</p>
+      </div>
+    </section>
+    
+    
+  </main>
+
+  <div class="overlay" id="popup-overlay"></div>
+  <div class="popup" id="popup-container">
+    <img id="popup-image" alt="Game Result" />
+    <button id="popup-close">Close</button>
+  </div>
+  <!-- BACKGROUND MUSIC -->
+  <audio id="background-audio" src="Audios/while_game.mp3" loop autoplay></audio>
+
+  <footer>
+    <h2>REZA</h2>
+  </footer>
+</body>
+
+</html>
