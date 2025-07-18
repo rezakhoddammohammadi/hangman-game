@@ -12,7 +12,7 @@ This version features a **dark and horror-themed UI**, **ambient sounds**, and s
 - 📁 Modular file structure (images, styles, scripts, audio)
 - 🖥️ Runs locally in browser (`localhost` or just open index.html)
 
-## 📁 Folder Structure
+# 📁 Folder Structure
 
 Hangman.Project/
 │
@@ -24,9 +24,11 @@ Hangman.Project/
 └── json/ # Word list (optional or dynamic loading)
 
 
-## 🚀 How to Run
+# 🚀 How to Run
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/rezakhoddammohammadi/hangman-game.git
+
+
 
